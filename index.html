@@ -36,35 +36,66 @@
       font-size: 16px;
     }
 
-    /* Etapas do checkout */
-    .checkout-steps {
+    /* Barra de progresso das etapas */
+    .progress-container {
+      position: relative;
+      width: 100%;
+      margin: 20px 0 30px;
+    }
+    
+    .progress-steps {
       display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 20px 0;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
     }
-    .step-container {
-      text-align: center;
-    }
-    .step {
-      display: inline-block;
-      background: #ddd;
+    
+    .progress-step {
       width: 35px;
       height: 35px;
-      line-height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ddd;
       border-radius: 50%;
       font-weight: bold;
       color: #333;
-      margin-bottom: 5px;
       border: 2px solid #ccc;
+      position: relative;
     }
-    .step.active {
+    
+    .progress-step.active {
       background: #2196F3;
-      color: #fff;
+      color: white;
       border-color: #2196F3;
     }
+    
+    .progress-bar {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 4px;
+      background: #ddd;
+      width: 100%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: #2196F3;
+      width: 0%;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    
     .step-label {
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 14px;
+      white-space: nowrap;
       color: #333;
     }
 
@@ -122,100 +153,83 @@
       text-decoration: none;
       margin-top: 20px;
     }
-/* Seção de Comentários / Avaliações */
 
-.contornodoscomenterios {
-  background: #fff;
-  padding: 15px 30px;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgb(0 159 255);
-  width: 100%; /* Ocupa toda a largura disponível */
-  max-width: 600px; /* Define um tamanho máximo */
-  margin: 20px auto; /* Centraliza e adiciona espaço entre os elementos */
-  
-  /* Ajuste de posicionamento */
-  position: relative; /* Mantém no fluxo do layout */
-  display: block;
-}
-
-/* Responsivo para telas menores */
-@media (max-width: 768px) {
-  .contornodoscomenterios {
-    width: 90%; /* Ajusta a largura */
-    padding: 10px;
-  }
-}
-
-.trust-section {
-  width: 90%;
-  max-width: 1200px;
-  margin: 30px auto;
-}
-
-.trust-section h3 {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-/* Container dos comentários */
-.trust-items {
-  /* Mantém a organização, sem alterações */
-}
-
-/* Cada comentário: fundo transparente e sem borda */
-.trust-comment {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  background: transparent; /* Fundo invisível */
-  border: none;          /* Sem bordas */
-  padding: 15px;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
-/* Imagem do comentário permanece igual */
-.trust-comment img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  margin-right: 10px;
-  border-radius: 5px;
-}
-
-/* Conteúdo do comentário */
-.trust-comment-content {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Nome do parceiro */
-.trust-comment-content .brand {
-  font-weight: bold;
-  font-size: 15px;
-  margin-bottom: 5px;
-}
-
-/* Texto do comentário */
-.trust-comment-content .comment-text {
-  margin-bottom: 10px;
-}
-
-/* Estrelas de avaliação */
-.trust-comment-content .rating {
-  color: #FFD700;
-  font-size: 16px;
-}
-
-/* Separador (linha horizontal) */
-.separator {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 10px 0;
-}
-
+    /* Cartão do carrinho */
+    .cart-card {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgb(0 159 255);
+      border: 1px solid #e1e1e1;
+    }
+    
+    .cart-header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid #eee;
+    }
+    
+    .cart-item-details {
+      flex: 1;
+    }
+    
+    .cart-item-title {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    
+    .cart-item-variant {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .cart-summary {
+      margin-top: 15px;
+    }
+    
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    
+    .cart-summary-total {
+      font-weight: bold;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      font-size: 16px;
+    }
+    
+    .cart-divider {
+      height: 1px;
+      background-color: #eee;
+      margin: 12px 0;
+    }
 
     /* Mensagem de status (para validação de campos) */
     .status-message {
@@ -237,17 +251,102 @@
       100% { content: '.'; }
     }
 
+    /* Seção de Comentários - ESTILO IDÊNTICO AO SITE DE REFERÊNCIA */
+    .contornodoscomenterios {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .trust-section {
+      width: 100%;
+    }
+
+    .trust-items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .trust-comment {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+    }
+
+    .trust-comment img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .trust-comment-content {
+      flex: 1;
+    }
+
+    .trust-comment-content .brand {
+      font-size: 13px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .trust-comment-content .comment-text {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+
+    .trust-comment-content .rating {
+      color: #FFD700;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .separator {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 8px 0;
+    }
+
     /* Responsividade */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
       }
-      .left-section {
+      .left-section, .essa {
         width: 100%;
       }
+      .progress-step {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
+      .step-label {
+        font-size: 12px;
+        bottom: -20px;
+      }
+      .cart-card {
+        padding: 15px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .contornodoscomenterios {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 159, 255, 0.15);
+      }
       .trust-comment {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 15px 0;
       }
     }
   </style>
@@ -257,6 +356,7 @@
   <div class="header">
     <img src="images/MERCADO.png" alt="Logo Atacado Casa Nova Brasil">
   </div>
+  
   <!-- Banner -->
   <div class="banner">
     Esta compra possui garantia • O Mercado Pago garante a entrega do pedido ou reembolso total do valor pago.
@@ -264,30 +364,69 @@
   
   <!-- Container Principal -->
   <div class="container">
-    <!-- Etapas do Checkout -->
+    <!-- Etapas do Checkout com Barra de Progresso -->
     <div class="essa">
-      <div class="checkout-steps">
-        <div class="step-container">
-          <div class="step active">1</div>
-          <div class="step-label">Identificação</div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
-        <div class="step-container">
-          <div class="step">2</div>
-          <div class="step-label">Entrega</div>
-        </div>
-        <div class="step-container">
-          <div class="step">3</div>
-          <div class="step-label">Pagamento</div>
+        <div class="progress-steps">
+          <div class="progress-step active" id="step1">
+            1
+            <div class="step-label">Identificação</div>
+          </div>
+          <div class="progress-step" id="step2">
+            2
+            <div class="step-label">Entrega</div>
+          </div>
+          <div class="progress-step" id="step3">
+            3
+            <div class="step-label">Pagamento</div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Carrinho de Compras -->
+    <div class="cart-card">
+      <h3 class="cart-header">Seu carrinho</h3>
+      
+      <div class="cart-item">
+        <img src="images/cimento.png" alt="Churrasqueira Elétrica">
+        <div class="cart-item-details">
+          <div class="cart-item-title">super promoção cimento </div>
+          <div class="cart-item-variant"> 4 sacos de cimento </div>
+        </div>
+      </div>
+      
+      <div class="cart-divider"></div>
+      
+      <div class="cart-summary">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span>R$ 35</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Frete</span>
+          <span>-</span>
+        </div>
+      </div>
+      
+      <div class="cart-divider"></div>
+      
+      <div class="cart-summary-row cart-summary-total">
+        <span>Total</span>
+        <span>R$ 35</span>
+      </div>
+    </div>
+
     <!-- Formulário de Identificação -->
     <div class="left-section">
       <h3>Identificação</h3>
       <div class="form-group">
         <label>E-mail</label>
         <input type="email" placeholder="email@email.com"
-               id="email" onblur="validateField('email')">
+               id="email" oninput="updateProgress()" onblur="validateField('email')">
         <div class="status-message" id="email-status">Analisando dados</div>
       </div>
       <div class="form-group">
@@ -301,7 +440,7 @@
       <div class="form-group">
         <label>Nome completo</label>
         <input type="text" placeholder="Nome e Sobrenome"
-               id="nome" onblur="validateField('nome')">
+               id="nome" oninput="updateProgress()" onblur="validateField('nome')">
         <div class="status-message" id="nome-status">Analisando dados</div>
       </div>
       <div class="form-group">
@@ -316,50 +455,48 @@
     </div>
   </div>
 
-<!-- Seção de Comentários / Avaliações -->
- <div class="contornodoscomenterios">
-<div class="trust-section">
-  <div class="trust-items">
-    <!-- Comentário do Correios -->
-    <div class="trust-comment">
-      <img src="images/correios img pequena-Photoroom.png" alt="Correios®">
-      <div class="trust-comment-content">
-        <span class="brand">Correios®</span>
-        <p class="comment-text">
-          Nossos envios são feitos pelo sistema dos Correios há mais de 5 anos. Possuímos um sistema de entrega inteligente, rápido e seguro em todo o Brasil.
-        </p>
-        <div class="rating">★★★★★</div>
-      </div>
-    </div>
-    <hr class="separator">
-    <!-- Comentário do Mercado Pago -->
-    <div class="trust-comment">
-      <img src="images/mercado-pago img pequena.webp" alt="Mercado Pago®">
-      <div class="trust-comment-content">
-        <span class="brand">Mercado Pago®</span>
-        <p class="comment-text">
-          O Mercado Pago é a instituição financeira parceira em parte de nossas transações, garantindo a segurança para nossos clientes e para nossa loja.
-        </p>
-        <div class="rating">★★★★★</div>
-      </div>
-    </div>
-    <hr class="separator">
-    <!-- Comentário do Santander -->
-    <div class="trust-comment">
-      <img src="images/sandander.img pequena.jpg" alt="Banco Santander®">
-      <div class="trust-comment-content">
-        <span class="brand">Santander®</span>
-        <p class="comment-text">
-          Ficamos felizes em anunciar que o Banco Santander é uma das plataformas de segurança que utilizamos, auxiliando na segurança das transações e na criptografia dos pagamentos.
-        </p>
-        <div class="rating">★★★★★</div>
+  <!-- Seção de Comentários / Avaliações -->
+  <div class="contornodoscomenterios">
+    <div class="trust-section">
+      <div class="trust-items">
+        <!-- Comentário do Correios -->
+        <div class="trust-comment">
+          <img src="images/correios img pequena-Photoroom.png" alt="Correios®">
+          <div class="trust-comment-content">
+            <span class="brand">Correios®</span>
+            <p class="comment-text">
+              Nossos envios são feitos pelo sistema dos Correios há mais de 5 anos. Possuímos um sistema de entrega inteligente, rápido e seguro em todo o Brasil.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <!-- Comentário do Mercado Pago -->
+        <div class="trust-comment">
+          <img src="images/mercado-pago img pequena.webp" alt="Mercado Pago®">
+          <div class="trust-comment-content">
+            <span class="brand">Mercado Pago®</span>
+            <p class="comment-text">
+              O Mercado Pago é a instituição financeira parceira em parte de nossas transações, garantindo a segurança para nossos clientes e para nossa loja.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <!-- Comentário do Santander -->
+        <div class="trust-comment">
+          <img src="images/sandander.img pequena.jpg" alt="Banco Santander®">
+          <div class="trust-comment-content">
+            <span class="brand">Santander®</span>
+            <p class="comment-text">
+              Ficamos felizes em anunciar que o Banco Santander é uma das plataformas de segurança que utilizamos, auxiliando na segurança das transações e na criptografia dos pagamentos.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-
-
 
   <!-- Scripts para formatação automática de telefone, CPF e validação -->
   <script>
@@ -371,6 +508,7 @@
         value = value.replace(/(\d{5})(\d)/, '$1-$2');
       }
       input.value = value;
+      updateProgress();
     }
 
     // Formata o CPF para XXX.XXX.XXX-XX
@@ -382,6 +520,7 @@
         value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
       }
       input.value = value;
+      updateProgress();
     }
 
     // Exibe "Analisando dados" e após 6 segundos "Verificado"
@@ -396,7 +535,39 @@
       }, 6000); // 6 segundos
 
       statusMessage.classList.add('loading');
+      updateProgress();
     }
+
+    // Função para atualizar a barra de progresso
+    function updateProgress() {
+      const fields = ['email', 'telefone', 'nome', 'cpf'];
+      let filledCount = 0;
+      
+      // Verifica quantos campos estão preenchidos
+      fields.forEach(field => {
+        const value = document.getElementById(field).value.trim();
+        if (value !== '') filledCount++;
+      });
+      
+      // Calcula a porcentagem de preenchimento (0-50%, pois só vamos até a etapa 2)
+      const progressPercent = Math.min(50, (filledCount / fields.length) * 50);
+      
+      // Atualiza a barra de progresso com animação suave
+      document.getElementById('progressFill').style.width = `${progressPercent}%`;
+      
+      // Se todos os campos estiverem preenchidos, destaca a próxima etapa
+      if (filledCount === fields.length) {
+        document.getElementById('step2').classList.add('active');
+      } else {
+        document.getElementById('step2').classList.remove('active');
+      }
+    }
+
+    // Adiciona event listeners para atualizar o progresso enquanto digita
+    document.getElementById('email').addEventListener('input', updateProgress);
+    document.getElementById('telefone').addEventListener('input', updateProgress);
+    document.getElementById('nome').addEventListener('input', updateProgress);
+    document.getElementById('cpf').addEventListener('input', updateProgress);
   </script>
 </body>
 </html>
