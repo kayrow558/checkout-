@@ -154,38 +154,38 @@
       margin-top: 20px;
     }
 
-    /* Cartão do carrinho */
+    /* Cartão do carrinho - AUMENTADO NA HORIZONTAL */
     .cart-card {
-      max-width: 400px;
+      width: 500px; /* Aumentado na horizontal */
       margin: 20px auto;
-      padding: 20px;
+      padding: 25px;
       background: white;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 4px 15px rgb(0 159 255);
       border: 1px solid #e1e1e1;
     }
     
     .cart-header {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #333;
-      padding-bottom: 10px;
+      padding-bottom: 15px;
       border-bottom: 1px solid #eee;
     }
     
     .cart-item {
       display: flex;
-      gap: 12px;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
       border-bottom: 1px solid #f5f5f5;
     }
     
     .cart-item img {
-      width: 60px;
-      height: 60px;
-      border-radius: 4px;
+      width: 80px; /* Aumentado */
+      height: 80px; /* Aumentado */
+      border-radius: 5px;
       object-fit: cover;
       border: 1px solid #eee;
     }
@@ -195,63 +195,43 @@
     }
     
     .cart-item-title {
-      font-size: 14px;
+      font-size: 16px;
       color: #333;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       line-height: 1.4;
     }
     
     .cart-item-variant {
-      font-size: 12px;
+      font-size: 14px;
       color: #666;
     }
     
     .cart-summary {
-      margin-top: 15px;
+      margin-top: 20px;
     }
     
     .cart-summary-row {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 14px;
+      margin-bottom: 10px;
+      font-size: 16px;
     }
     
     .cart-summary-total {
       font-weight: bold;
-      margin-top: 10px;
-      padding-top: 10px;
+      margin-top: 15px;
+      padding-top: 15px;
       border-top: 1px solid #eee;
-      font-size: 16px;
+      font-size: 18px;
     }
     
     .cart-divider {
       height: 1px;
       background-color: #eee;
-      margin: 12px 0;
+      margin: 15px 0;
     }
 
-    /* Mensagem de status (para validação de campos) */
-    .status-message {
-      font-size: 14px;
-      color: red;
-      margin-top: 5px;
-      display: none;
-    }
-    .status-message.success {
-      color: green;
-    }
-    .status-message.loading::after {
-      content: '...';
-      animation: loading 1s infinite;
-    }
-    @keyframes loading {
-      0% { content: '...'; }
-      50% { content: '..'; }
-      100% { content: '.'; }
-    }
-
-    /* Seção de Comentários - ESTILO IDÊNTICO AO SITE DE REFERÊNCIA */
+    /* Seção de Comentários */
     .contornodoscomenterios {
       background: #fff;
       padding: 15px;
@@ -317,6 +297,44 @@
       margin: 8px 0;
     }
 
+    /* Estilos para as mensagens de status */
+    .status-message {
+      font-size: 12px;
+      margin-top: 5px;
+      height: 18px;
+    }
+    
+    .status-message.loading {
+      color: #ff0000;
+    }
+    
+    .status-message.loading::after {
+      content: '.';
+      animation: dots 1.5s steps(5, end) infinite;
+    }
+    
+    .status-message.verified {
+      color: #00aa00;
+      font-weight: bold;
+    }
+    
+    @keyframes dots {
+      0%, 20% {
+        color: rgba(0,0,0,0);
+        text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0);
+      }
+      40% {
+        color: #ff0000;
+        text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0);
+      }
+      60% {
+        text-shadow: .25em 0 0 #ff0000, .5em 0 0 rgba(0,0,0,0);
+      }
+      80%, 100% {
+        text-shadow: .25em 0 0 #ff0000, .5em 0 0 #ff0000;
+      }
+    }
+
     /* Responsividade */
     @media (max-width: 768px) {
       .container {
@@ -335,7 +353,8 @@
         bottom: -20px;
       }
       .cart-card {
-        padding: 15px;
+        width: 100%;
+        padding: 20px;
       }
     }
 
@@ -387,15 +406,15 @@
       </div>
     </div>
 
-    <!-- Carrinho de Compras -->
+    <!-- Carrinho de Compras - AUMENTADO -->
     <div class="cart-card">
       <h3 class="cart-header">Seu carrinho</h3>
       
       <div class="cart-item">
-        <img src="images/cimento.png" alt="Churrasqueira Elétrica">
+        <img src="images/cimento.png" alt="Cimento">
         <div class="cart-item-details">
-          <div class="cart-item-title">super promoção cimento </div>
-          <div class="cart-item-variant"> 4 sacos de cimento </div>
+          <div class="cart-item-title">Super promoção cimento</div>
+          <div class="cart-item-variant">4 sacos de cimento</div>
         </div>
       </div>
       
@@ -427,7 +446,7 @@
         <label>E-mail</label>
         <input type="email" placeholder="email@email.com"
                id="email" oninput="updateProgress()" onblur="validateField('email')">
-        <div class="status-message" id="email-status">Analisando dados</div>
+        <div class="status-message" id="email-status"></div>
       </div>
       <div class="form-group">
         <label>Telefone</label>
@@ -435,13 +454,13 @@
                placeholder="(99) 99999-9999"
                oninput="formatarTelefone(this)" maxlength="15"
                onblur="validateField('telefone')">
-        <div class="status-message" id="telefone-status">Analisando dados</div>
+        <div class="status-message" id="telefone-status"></div>
       </div>
       <div class="form-group">
         <label>Nome completo</label>
         <input type="text" placeholder="Nome e Sobrenome"
                id="nome" oninput="updateProgress()" onblur="validateField('nome')">
-        <div class="status-message" id="nome-status">Analisando dados</div>
+        <div class="status-message" id="nome-status"></div>
       </div>
       <div class="form-group">
         <label>CPF</label>
@@ -449,9 +468,9 @@
                placeholder="123.456.789-12"
                oninput="formatarCPF(this)" maxlength="14"
                onblur="validateField('cpf')">
-        <div class="status-message" id="cpf-status">Analisando dados</div>
+        <div class="status-message" id="cpf-status"></div>
       </div>
-      <a href="#" class="btn">IR PARA A ENTREGA</a>
+      <a href="#" class="btn" id="nextBtn">IR PARA A ENTREGA</a>
     </div>
   </div>
 
@@ -523,22 +542,55 @@
       updateProgress();
     }
 
-    // Exibe "Analisando dados" e após 6 segundos "Verificado"
+    // Exibe "Analisando dados" com pontinhos vermelhos e depois "Verificado" em verde
     function validateField(fieldId) {
+      var input = document.getElementById(fieldId);
       var statusMessage = document.getElementById(fieldId + '-status');
-      statusMessage.style.display = 'block';
-
+      
+      // Verifica se o campo está vazio
+      if (input.value.trim() === '') {
+        statusMessage.textContent = '';
+        statusMessage.className = 'status-message';
+        return;
+      }
+      
+      // Mostra "Analisando" com pontinhos vermelhos
+      statusMessage.textContent = 'Analisando dados';
+      statusMessage.className = 'status-message loading';
+      
+      // Simula verificação após 3 segundos
       setTimeout(function() {
         statusMessage.textContent = 'Verificado';
-        statusMessage.style.color = 'green';
-        statusMessage.classList.remove('loading');
-      }, 6000); // 6 segundos
-
-      statusMessage.classList.add('loading');
+        statusMessage.className = 'status-message verified';
+        checkAllFieldsVerified();
+      }, 3000);
+      
       updateProgress();
     }
 
-    // Função para atualizar a barra de progresso
+    // Verifica se todos os campos foram verificados
+    function checkAllFieldsVerified() {
+      const fields = ['email', 'telefone', 'nome', 'cpf'];
+      let allVerified = true;
+      
+      fields.forEach(field => {
+        const statusMessage = document.getElementById(field + '-status');
+        if (!statusMessage.classList.contains('verified')) {
+          allVerified = false;
+        }
+      });
+      
+      if (allVerified) {
+        // Ativa visualmente o passo 2
+        document.getElementById('step2').classList.add('active');
+        
+        // Habilita o botão de próxima etapa
+        document.getElementById('nextBtn').style.backgroundColor = '#2196F3';
+        document.getElementById('nextBtn').style.cursor = 'pointer';
+      }
+    }
+
+    // Função para atualizar a barra de progresso (só vai até 50% - metade do caminho até o passo 2)
     function updateProgress() {
       const fields = ['email', 'telefone', 'nome', 'cpf'];
       let filledCount = 0;
@@ -549,14 +601,16 @@
         if (value !== '') filledCount++;
       });
       
-      // Calcula a porcentagem de preenchimento (0-50%, pois só vamos até a etapa 2)
+      // Calcula a porcentagem de preenchimento (máximo 50% - metade do caminho até o passo 2)
       const progressPercent = Math.min(50, (filledCount / fields.length) * 50);
       
       // Atualiza a barra de progresso com animação suave
       document.getElementById('progressFill').style.width = `${progressPercent}%`;
       
-      // Se todos os campos estiverem preenchidos, destaca a próxima etapa
-      if (filledCount === fields.length) {
+      // Se todos os campos estiverem preenchidos e verificados, completa até 50%
+      const allVerified = document.querySelectorAll('.status-message.verified').length === 4;
+      if (allVerified) {
+        document.getElementById('progressFill').style.width = '50%';
         document.getElementById('step2').classList.add('active');
       } else {
         document.getElementById('step2').classList.remove('active');
@@ -568,6 +622,10 @@
     document.getElementById('telefone').addEventListener('input', updateProgress);
     document.getElementById('nome').addEventListener('input', updateProgress);
     document.getElementById('cpf').addEventListener('input', updateProgress);
+    
+    // Inicialmente desabilita o botão de próxima etapa
+    document.getElementById('nextBtn').style.backgroundColor = '#cccccc';
+    document.getElementById('nextBtn').style.cursor = 'not-allowed';
   </script>
 </body>
 </html>
