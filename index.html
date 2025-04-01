@@ -137,14 +137,14 @@
       background: #fff;
       padding: 15px 30px;
       border-radius: 20px;
-      box-shadow: 0 4px 15px  rgba(87, 1, 248, 0.575);
+      box-shadow: 0 4px 15px  hsla(261, 99%, 49%, 0.575);
       flex: 1 1 60%;
     }
     .btn {
       display: block;
       width: 100%;
       padding: 14px;
-      background-color: #2196F3;
+      background-color: #6416f7;
       color: #fff;
       text-align: center;
       font-size: 16px;
@@ -470,7 +470,78 @@
                onblur="validateField('cpf')">
         <div class="status-message" id="cpf-status"></div>
       </div>
-      <a href="#" class="btn" id="nextBtn">IR PARA A ENTREGA</a>
+      <!-- Div pontilhada acima do botão de compra -->
+       
+      
+      
+      <div class="dashed-box">
+  <p><strong>Usamos seus dados de forma 100% segura para garantir a sua satisfação:</strong></p>
+  
+  <ul>
+    <li>
+      <img src="images/certinho.svg" alt="Correto"> Enviar o seu comprovante de compra e pagamento;
+    </li>
+    <li>
+      <img src="images/certinho.svg" alt="Correto"> Ativar a sua garantia de devolução caso não fique satisfeito;
+    </li>
+    <li>
+      <img src="images/certinho.svg" alt="Correto"> Acompanhar o andamento do seu pedido;
+    </li>
+  </ul>
+</div>
+
+<!-- Botão de compra -->
+<a href="#" class="btn">IR PARA A ENTREGA</a>
+
+
+<style>
+ /* Caixa pontilhada */
+.dashed-box {
+  border: 2px dashed #d9d9d9; 
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  margin-bottom: 15px; /* Espaçamento entre a div e o botão */
+}
+
+/* Lista */
+.dashed-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.dashed-box li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Ícones */
+.dashed-box img {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+/* Botão */
+.btn {
+  display: block;
+  text-align: center;
+  background-color: #6416f7;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+</style>
     </div>
   </div>
 
